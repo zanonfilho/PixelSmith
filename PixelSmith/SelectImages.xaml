@@ -1,0 +1,42 @@
+﻿<Window x:Class="PixelSmith.SelectImages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PixelSmith"
+        mc:Ignorable="d"
+        Title="SelectImages" Height="300" Width="300"
+				WindowState='Maximized'>
+    <Grid>
+		<!--<ListBox x:Name='ImagesListBox'>
+			<TextBlock Text='Example 1' />
+			<TextBlock Text='Example 2' />
+		</ListBox>-->
+
+		<ListBox ItemsSource='{Binding}'
+						 VirtualizingStackPanel.ScrollUnit="Pixel">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Image Source='{Binding Image}' />
+						
+						<TextBlock FontSize='56'
+											 FontFamily='Candara'
+											 Margin='4,4,0,0'
+											 Text='{Binding ArtName}'
+											 Foreground='Black'>
+							<TextBlock.Effect>
+								<BlurEffect />
+							</TextBlock.Effect></TextBlock>
+						<TextBlock FontSize='56'
+											 FontFamily='Candara'
+											 Text='{Binding ArtName}'
+											 Foreground='LightGoldenrodYellow'>
+							</TextBlock>
+					
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</Window>
